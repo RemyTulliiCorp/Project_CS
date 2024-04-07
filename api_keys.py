@@ -11,5 +11,4 @@ all_keys = {
     'lev_key_spoonacular' : 'input',
     'lev_key_edamam' : 'input',
     'lev_id_key' : 'input',
-}  
-
+}

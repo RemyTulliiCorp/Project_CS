@@ -2,7 +2,7 @@
 #importing APIKeys to easily use the API we want by only modifying the name 
 import requests
 import APIKeys 
-from APIkeys import remy_key_spoonacular
+#from APIkeys import remy_key_spoonacular
 from APIkeys import remy_key_edamam 
 from APIkeys import matteo_key_spoonacular
 from APIkeys import matteo_key_edamam

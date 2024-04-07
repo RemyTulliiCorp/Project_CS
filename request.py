@@ -16,10 +16,10 @@ def search_recipes(query):
   api_url2 = 'https://api.edamam.com/search'
   params = { 
     'q': query,
-    'app_id' : api_id,
-    'app_key' : api_key
+    'app_id' : api_id2,
+    'app_key' : api_key2
   }
-  response = requests.get(api_url, params = params)
+  response = requests.get(api_url2, params = params)
   if response.status_code == 200:
     return response.json()
   else:

@@ -1,5 +1,6 @@
 import requests
 import APIKeys 
+from APIkeys import remy_key_spoonacular
 
 def search_recipes(query):
   api_key = 
@@ -17,3 +18,15 @@ def search_recipes(query):
     return None
   
   
+spoonacular_key = remy_key_spoonacular
+url = 'https://api.spoonacular.com/recipes/findByIngredients'
+params = {
+    'apiKey': spoonacular_key,
+    'query': 'pasta'
+}
+
+response = requests.get(url, params=params)
+data = response.json()
+
+
+

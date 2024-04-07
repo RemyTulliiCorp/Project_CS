@@ -25,7 +25,7 @@ def search_recipes(query):
   else:
     return None
   
-  search_recipes(pasta)
-  
+search_recipes(pasta)
+
 
 

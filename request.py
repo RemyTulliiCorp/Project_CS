@@ -25,13 +25,7 @@ def search_recipes(query):
   else:
     return None
   
+  search_recipes(pasta)
+  
 
-spoonacular_key = remy_key_spoonacular
-url = 'https://api.spoonacular.com/recipes/findByIngredients'
-params = {
-    'apiKey': spoonacular_key,
-    'query': 'pasta'
-}
 
-response = requests.get(url, params=params)
-data_spoonacular = response.json()

@@ -1,12 +1,14 @@
 import requests
 import APIKeys 
-from APIkeys import remy_key_spoonacular
+from APIkeys import remy_key_spoonacular, remy_key_edamam, matteo_key_spoonacular, matteo_key_edamam
 
 def search_recipes(query):
   api_key = 
   api_id = 
-  api_url = 'https://api.edamam.com/search'
-  params { 
+  api_url1 = 
+  api_url1 = "https://api.spoonacular.com/recipes/findByIngredients"
+  api_url2 = 'https://api.edamam.com/search'
+  params = { 
     'q': query,
     'app_id' : api_id,
     'app_key' : api_key

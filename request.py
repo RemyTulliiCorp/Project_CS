@@ -1,7 +1,7 @@
 #importing the libraries requests for HTTP requests to web servers
 #importing APIKeys to easily use the API we want by only modifying the name 
 import requests
-from APIKeys.py import all_keys
+from api_keys import all_keys
 
 #defining a function that will allow to search the API using a query (future ingredients) put in by the user and the parameters containing the information to access the API
 #checking if the request was successfull

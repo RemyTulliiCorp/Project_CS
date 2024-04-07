@@ -2,12 +2,7 @@
 #importing APIKeys to easily use the API we want by only modifying the name 
 import requests
 import APIKeys 
-#from APIkeys import remy_key_spoonacular
-from APIkeys import remy_key_edamam 
-from APIkeys import matteo_key_spoonacular
-from APIkeys import matteo_key_edamam
-from APIkeys import remy_id_edamam
-from APIkeys import matteo_id_edamam
+
 
 
 #defining a function that will allow to search the API using a query (future ingredients) put in by the user and the parameters containing the information to access the API

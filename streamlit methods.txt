@@ -1,0 +1,3 @@
+
+st.title --> https://docs.streamlit.io/develop/api-reference/text/st.title
+st.text_input --> https://docs.streamlit.io/develop/api-reference/widgets/st.text_input

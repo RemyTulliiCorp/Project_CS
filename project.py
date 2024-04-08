@@ -12,7 +12,7 @@ if output_recipes: # == if you press on the button
     recipes = search_recipes(your_ingredients)
     if recipes: # == if a recipe exists
         for i in recipes:
-            st.write(i['recipe']['label']) # give the name of the recipe
+            st.subheader(i['recipe']['label']) # give the name of the recipe
             st.image(i['recipe']['image']) # put an image of the recipe
     else:
         st.write('No recipe was found :hankey:')

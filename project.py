@@ -11,9 +11,9 @@ output_recipes = st.button('Find Recipes')
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients)
     if data: # == if a recipe exists
-        meals = data.get("hits")
+        meals = data.get("hits") #hits comes before recipe
         for meal in meals:
-            recipe = meal.get("recipe")
+            recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
             

@@ -7,8 +7,11 @@ all_keys = {
     'matteo_id_edamam': 'c1718ec0',
     'nathan_key_spoonacular' : 'input',
     'nathan_key_edamam': 'input',
-    'nathan_id_key' : 'input',
+    'nathan_id_edamam' : 'input',
     'lev_key_spoonacular' : 'input',
     'lev_key_edamam' : 'input',
-    'lev_id_key' : 'input',
+    'lev_id_edamam' : 'input',
+    'ferdi_key_spoonacular' : 'input',
+    'ferdi_key_edamam' : 'input',
+    'ferdi_id_edamam' : 'input'
 }

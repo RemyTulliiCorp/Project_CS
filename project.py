@@ -2,6 +2,6 @@ import streamlit as st
 import requests
 from request import search_recipes
 st.title('Kitchenalchemy')
-st.write("testt")
+your_ingredients = st.text_input('Enter the ingredients you have in your fridge')
 ingredients = search_recipes('pasta')
 st.write(ingredients)

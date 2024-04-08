@@ -6,14 +6,14 @@ from api_keys import all_keys
 # defining a function that will allow to search the API using a query (future ingredients) put in by the user and the parameters containing the information to access the API
 # checking if the request was successfull
 # return a json of the API response
-def search_recipes(query):
+def search_recipes(your_ingredients):
   api_key1 = all_keys['remy_key_spoonacular'] # change the name if limit exceeded
   api_key2 = all_keys['remy_key_edamam'] # change the name if limit exceeded
   api_id2 = all_keys['remy_id_edamam'] # change the name if limit exceeded
   api_url1 = "https://api.spoonacular.com/recipes/findByIngredients"
   api_url2 = 'https://api.edamam.com/search'
   params = { 
-    'q': query,
+    'q': your_ingredients,
     'app_id' : api_id2,
     'app_key' : api_key2
   }

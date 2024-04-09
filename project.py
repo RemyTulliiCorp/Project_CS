@@ -25,7 +25,7 @@ if output_recipes: # == if you press on the button
             recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
-            st.write(f" For {recipe['yield']} persons")
+            st.write(f" For {round(recipe['yield'])} persons")
             st.write(f" Calories per serving: {round(recipe['calories']/recipe['yield'])}") # calories 
             if recipe['totalTime']>0:
                 st.write(f" {round(recipe['totalTime'])} minutes") # cooking time

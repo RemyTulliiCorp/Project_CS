@@ -1,7 +1,6 @@
 import streamlit as st
 import requests
 from request import search_recipes
-from selectbox import cuisine_type
 # Title
 st.title(':violet[KitchenAlchemy]')
 # User input for ingredients 
@@ -10,6 +9,7 @@ your_ingredients = st.text_input('Enter the ingredients you have in your fridge,
 output_recipes = st.button('Find Recipes')
 # button to select the cuisine type: chinese, italian, etc.
 # cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
+from selectbox import cuisine_type
 
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None)

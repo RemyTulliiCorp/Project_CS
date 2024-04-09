@@ -8,8 +8,8 @@ import streamlit as st
 # return a json of the API response
 def search_recipes(your_ingredients, cuisine_type = None, max_time = None):
   api_key1 = all_keys['remy_key_spoonacular'] # change the name if limit exceeded
-  api_key2 = all_keys['nathan_key_edamam'] # change the name if limit exceeded
-  api_id2 = all_keys['nathan_id_edamam'] # change the name if limit exceeded
+  api_key2 = all_keys['matteo_key_edamam'] # change the name if limit exceeded
+  api_id2 = all_keys['matteo_id_edamam'] # change the name if limit exceeded
   api_url1 = "https://api.spoonacular.com/recipes/findByIngredients"
   api_url2 = 'https://api.edamam.com/search'
   params = { 

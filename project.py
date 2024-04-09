@@ -30,6 +30,7 @@ if output_recipes: # == if you press on the button
                 st.write(f'{ingredient}')
             url_recipe = recipe['url']
             st.markdown(f"[Recipe Instructions]({url_recipe})") # give a link to the instruction to cook the recipe
+            st.markdown('<hr>')
     else:
         st.write('No recipe was found :hankey:')
 

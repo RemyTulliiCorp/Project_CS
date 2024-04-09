@@ -12,8 +12,10 @@ max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'),
 # button to lauch the search
 output_recipes = st.button('Find Recipes')
 
+excluded_ingredients = st.text_input('Enter the ingredients you want to exclude')
+
 if output_recipes: # == if you press on the button
-    data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None) # calls the function
+    data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients) # calls the function
     if data: # == if a recipe exists
         meals = data.get("hits") #hits comes before recipe
         for meal in meals:
@@ -23,10 +25,10 @@ if output_recipes: # == if you press on the button
             st.write(f' Total calories: {round(recipe["calories"])}') # calories 
             if recipe['totalTime']>0:
                 st.write(f" {round(recipe['totalTime'])} minutes") # cooking time
-            for ingredient in recipe['ingredientLines']:
+            for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
                 st.write(f'{ingredient}')
             url_recipe = recipe['url']
-            st.markdown(f"[Recipe Instructions]({url_recipe})")
+            st.markdown(f"[Recipe Instructions]({url_recipe})") # give a link to the instruction to cook the recipe
     else:
         st.write('No recipe was found :hankey:')
 

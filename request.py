@@ -22,7 +22,7 @@ def search_recipes(your_ingredients, cuisine_type = None, max_time = None, exclu
     params['cuisineType'] = cuisine_type # new query parameter added
   
   if max_time:
-    params['time'] = max_time
+    params['time'] = f'1-{max_time}'
   if excluded_ingredients:
     params['excluded'] = excluded_ingredients.split(',')
 

@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 from request import search_recipes
 # Title
-st.title('KitchenAlchemy')
+st.title('Kitchen:red[Alchemy]')
 # User input for ingredients 
 your_ingredients = st.text_input('Enter the ingredients you have in your fridge, separated by a coma', placeholder="Chicken, rice")
 # button to select the cuisine type: chinese, italian, etc.

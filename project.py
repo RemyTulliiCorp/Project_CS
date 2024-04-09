@@ -13,7 +13,7 @@ cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', '
 max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'), index=0, key='time')
 
 if output_recipes: # == if you press on the button
-    data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None)
+    data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None)
     if data: # == if a recipe exists
         meals = data.get("hits") #hits comes before recipe
         for meal in meals:

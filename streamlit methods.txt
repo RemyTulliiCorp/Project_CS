@@ -4,3 +4,4 @@ st.text_input --> https://docs.streamlit.io/develop/api-reference/widgets/st.tex
 st.subheader --> https://docs.streamlit.io/develop/api-reference/text/st.subheader
 st.image --> https://docs.streamlit.io/develop/api-reference/media/st.image
 st.selectbox --> https://docs.streamlit.io/develop/api-reference/widgets/st.selectbox
+st.markdown --> https://docs.streamlit.io/develop/api-reference/text/st.markdown

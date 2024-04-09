@@ -2,17 +2,18 @@ import streamlit as st
 import requests
 from request import search_recipes
 # Title
-st.title(':violet[KitchenAlchemy]')
+st.title('KitchenAlchemy')
 # User input for ingredients 
 your_ingredients = st.text_input('Enter the ingredients you have in your fridge, separated by a coma', placeholder="Chicken, rice")
 # button to select the cuisine type: chinese, italian, etc.
-cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
+cuisine_type = st.selectbox('Choose a cuisine type (optional)', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
 # filter the maximum time period
 max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'), index=0, key='time')
+# filter the excluded ingredients
+excluded_ingredients = st.text_input('Enter the ingredients you want to exclude')
 # button to lauch the search
 output_recipes = st.button('Find Recipes')
 
-excluded_ingredients = st.text_input('Enter the ingredients you want to exclude')
 
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients) # calls the function

@@ -3,3 +3,4 @@ st.title --> https://docs.streamlit.io/develop/api-reference/text/st.title
 st.text_input --> https://docs.streamlit.io/develop/api-reference/widgets/st.text_input
 st.subheader --> https://docs.streamlit.io/develop/api-reference/text/st.subheader
 st.image --> https://docs.streamlit.io/develop/api-reference/media/st.image
+st.selectbox --> https://docs.streamlit.io/develop/api-reference/widgets/st.selectbox

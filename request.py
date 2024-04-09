@@ -6,7 +6,7 @@ import streamlit as st
 # defining a function that will allow to search the API using a query (future ingredients) put in by the user and the parameters containing the information to access the API
 # checking if the request was successfull
 # return a json of the API response
-def search_recipes(your_ingredients, cuisine_type = None, max_time = None, excluded_ingredient = None):
+def search_recipes(your_ingredients, cuisine_type = None, max_time = None, excluded_ingredient = None, max_calories = None):
   api_key1 = all_keys['remy_key_spoonacular'] # change the name if limit exceeded
   api_key2 = all_keys['matteo_key_edamam'] # change the name if limit exceeded
   api_id2 = all_keys['matteo_id_edamam'] # change the name if limit exceeded
@@ -26,6 +26,9 @@ def search_recipes(your_ingredients, cuisine_type = None, max_time = None, exclu
 
   if excluded_ingredient:
     params['excluded'] = excluded_ingredient
+
+  if max_calories:
+    params['calories'] = f'0-{max_calories}'
 
   response = requests.get(api_url2, params = params)
 

@@ -9,6 +9,8 @@ your_ingredients = st.text_input('Enter the ingredients you have in your fridge,
 output_recipes = st.button('Find Recipes')
 # button to select the cuisine type: chinese, italian, etc.
 cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
+# filter the maximum time period
+max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'), index=0, key='time')
 
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None)

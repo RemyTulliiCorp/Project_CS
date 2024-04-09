@@ -18,8 +18,8 @@ while True:
     if not additional_exclusion:
         break
     else:
-        excluded_ingredients.append(st.text_input('Additional ingredients to exclude', label_visibility='collapsed')) 
-        i+=1
+        i = st.text_input('Additional ingredients to exclude', label_visibility='collapsed')
+        excluded_ingredients.append(i)
 #slider to choose the calories
 max_calories = st.slider('Maximum number of calories', 100, 5000, 2500, 100)
 # button to lauch the search

@@ -19,6 +19,7 @@ if output_recipes: # == if you press on the button
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
             st.write(recipe['calories'])
+            st.write(recipe['time'])
     else:
         st.write('No recipe was found :hankey:')
 

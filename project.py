@@ -14,7 +14,7 @@ excluded_ingredients = []
 excluded_ingredients.append(st.text_input('Enter the ingredients you want to exlude'))
 while True:
     additional_exclusion = st.button('Exclude additional ingredient')
-    excluded_ingredients.append(st.text_input('Additional ingredients to exclude', disabled=True)) 
+    excluded_ingredients.append(st.text_input('Additional ingredients to exclude', label_visibility='collapsed')) 
     if not additional_exclusion:
         break
 

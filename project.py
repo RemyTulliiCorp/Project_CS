@@ -7,7 +7,7 @@ st.title(':violet[KitchenAlchemy]')
 your_ingredients = st.text_input('Enter the ingredients you have in your fridge, separated by a coma')
 # button to lauch the search
 output_recipes = st.button('Find Recipes')
-cuisine_type = st.selectbox('Choose a cuisine type (optional)', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
+cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
 
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients)

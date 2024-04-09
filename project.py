@@ -4,7 +4,7 @@ from request import search_recipes
 # Title
 st.title(':violet[KitchenAlchemy]')
 # User input for ingredients 
-your_ingredients = st.text_input('Enter the ingredients you have in your fridge, separated by a coma')
+your_ingredients = st.text_input('Enter the ingredients you have in your fridge, separated by a coma', placeholder="Chicken,rice")
 # button to select the cuisine type: chinese, italian, etc.
 cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
 # filter the maximum time period

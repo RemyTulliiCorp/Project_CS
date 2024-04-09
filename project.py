@@ -26,7 +26,7 @@ if additional_exclusion:
 #slider to choose the calories
 max_calories = st.slider('Maximum number of calories', 100, 5000, 2500, 100)
 # button to lauch the search
-output_recipes = st.button('Find Recipes', key=2)
+output_recipes = st.button('Find Recipes')
 
 
 if output_recipes: # == if you press on the button

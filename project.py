@@ -12,12 +12,14 @@ max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'),
 # filter the excluded ingredients
 excluded_ingredients = [] 
 excluded_ingredients.append(st.text_input('Enter the ingredients you want to exclude'))
+i = 1
 while True:
-    additional_exclusion = st.button('Exclude additional ingredient', key=1)
+    additional_exclusion = st.button('Exclude additional ingredient', key=i)
     if not additional_exclusion:
         break
     else:
         excluded_ingredients.append(st.text_input('Additional ingredients to exclude', label_visibility='collapsed')) 
+        i+=1
 
 if additional_exclusion:
     st.text_input('2nd ingredient', label_visibility='collapsed')

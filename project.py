@@ -8,8 +8,7 @@ your_ingredients = st.text_input('Enter the ingredients you have in your fridge,
 # button to lauch the search
 output_recipes = st.button('Find Recipes')
 # button to select the cuisine type: chinese, italian, etc.
-# cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
-from selectbox import cuisine_type
+cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
 
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None)
@@ -24,8 +23,6 @@ if output_recipes: # == if you press on the button
     else:
         st.write('No recipe was found :hankey:')
 
-
-        
 
 
 

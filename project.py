@@ -24,7 +24,5 @@ if output_recipes: # == if you press on the button
 
         
 
-        
-
 
 

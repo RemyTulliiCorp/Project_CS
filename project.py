@@ -17,7 +17,7 @@ if output_recipes: # == if you press on the button
             recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
-            st.write(f'Calories: {recipe['calories']}')
+            st.write(recipe['calories'])
     else:
         st.write('No recipe was found :hankey:')
 

@@ -25,7 +25,8 @@ if output_recipes: # == if you press on the button
             recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
-            st.write(f' Total calories: {round(recipe["calories"])}') # calories 
+            st.write(f" For {recipe['yield']} persons")
+            st.write(f' Calories per serving: {round(recipe["calories"]/recipe['yield'])}') # calories 
             if recipe['totalTime']>0:
                 st.write(f" {round(recipe['totalTime'])} minutes") # cooking time
             for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe

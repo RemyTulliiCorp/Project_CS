@@ -11,15 +11,10 @@ cuisine_type = st.selectbox('Choose a cuisine type (optional)', ('', 'American',
 max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'), index=0, key='time')
 # filter the excluded ingredients
 excluded_ingredients = [] 
-excluded_ingredients.append(st.text_input('Enter the ingredients you want to exclude'))
-i = 1
-while True:
-    additional_exclusion = st.button(f'Exclude an additional ingredient', key=i)
-    if not additional_exclusion:
-        break
-    else:
-        excluded_ingredients.append(st.text_input('Additional ingredients to exclude', label_visibility='collapsed'))
-        i+=1
+additional_exclusion = st.button(f'Exclude an ingredient', key=1)
+if additional_exclusion:
+    excluded_ingredients.append(st.text_input('Enter the ingredients you want to exclude'))
+
 #slider to choose the calories
 max_calories = st.slider('Maximum number of calories', 100, 5000, 2500, 100)
 # button to lauch the search

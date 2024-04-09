@@ -28,7 +28,7 @@ def search_recipes(your_ingredients, cuisine_type = None, max_time = None, exclu
     params['excluded'] = excluded_ingredients
 
   if max_calories:
-    params['calories'] = f'0-{max_calories}'
+    params['calories'] = max_calories
 
   response = requests.get(api_url2, params = params)
 

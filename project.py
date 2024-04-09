@@ -25,7 +25,7 @@ if output_recipes: # == if you press on the button
             for ingredient in recipe['ingredientLines']:
                 st.write(f'{ingredient}')
             url_recipe = recipe['url']
-            st.markdown(f"[Recipe Instructions:]({url_recipe})")
+            st.markdown(f"[Recipe Instructions]({url_recipe})")
     else:
         st.write('No recipe was found :hankey:')
 

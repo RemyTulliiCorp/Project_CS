@@ -10,7 +10,7 @@ output_recipes = st.button('Find Recipes')
 cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
 
 if output_recipes: # == if you press on the button
-    data = search_recipes(your_ingredients)
+    data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None)
     if data: # == if a recipe exists
         meals = data.get("hits") #hits comes before recipe
         for meal in meals:

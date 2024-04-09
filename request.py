@@ -23,9 +23,8 @@ def search_recipes(your_ingredients, cuisine_type = None, max_time = None, exclu
   
   if max_time:
     params['time'] = max_time
-
-  for excluded_ingredient in excluded_ingredients:
-    params['excluded'] = excluded_ingredient
+  if excluded_ingredients:
+    params['excluded'] = excluded_ingredients.split(',')
 
   if max_calories:
     params['calories'] = max_calories

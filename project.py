@@ -22,7 +22,7 @@ if output_recipes: # == if you press on the button
             st.subheader(recipe['label']) # give the name of the recipe
             st.write(f' Total calories : {recipe["calories"]}') # calories 
             st.write(recipe['totalTime']) # cooking time
-            for ingredient in recipe['ingredientsLines']:
+            for ingredient in recipe['ingredientLines']:
                 st.write(f'{ingredient}')
             url_recipe = recipe['url']
             st.markdown(f"[Recipe Instructions:]({url_recipe})")

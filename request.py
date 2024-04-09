@@ -17,10 +17,10 @@ def search_recipes(your_ingredients):
     'app_id' : api_id2,
     'app_key' : api_key2
   }
-  cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0, key = 'type')
+  cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'), index=0)
   if cuisine_type:
     params['cuisineType'] = cuisine_type
-  max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'), index=0, key = 'time')
+  max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'), index=0)
   if max_time:
     params['time'] = max_time
   response = requests.get(api_url2, params = params)

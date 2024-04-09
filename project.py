@@ -13,15 +13,18 @@ cuisine_type = st.selectbox('Choose a cuisine type', ('', 'American', 'Asian', '
 max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'), index=0, key='time')
 
 if output_recipes: # == if you press on the button
-    data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None)
+    data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None) # calls the function
     if data: # == if a recipe exists
         meals = data.get("hits") #hits comes before recipe
         for meal in meals:
             recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
-            st.write(f' Total calories : {recipe["calories"]}')
-            st.write(recipe['totalTime'])
+            st.write(f' Total calories : {recipe["calories"]}') # calories 
+            st.write(recipe['totalTime']) # cooking time
+            for ingredient in recipe['ingredientsLines']:
+                st.write(f'{ingredient}')
+    
     else:
         st.write('No recipe was found :hankey:')
 

@@ -21,7 +21,7 @@ if output_recipes: # == if you press on the button
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
             st.write(f' Total calories : {recipe["calories"]}') # calories 
-            st.write(recipe['totalTime']) # cooking time
+            st.write(recipe['totalTime'] if recipe['totalTime']>0 else None) # cooking time
             for ingredient in recipe['ingredientLines']:
                 st.write(f'{ingredient}')
             url_recipe = recipe['url']

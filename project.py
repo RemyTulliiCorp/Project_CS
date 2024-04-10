@@ -37,7 +37,7 @@ if output_recipes: # == if you press on the button
     
         sort_option = st.selectbox('Sort recipes by',options=('None', 'Calories', 'Cooking Time'),index=0)
         if output_recipes:
-            data = (your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories):
+            data = (your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories)
         # Sort the recipes based on the selected option
             if sort_option == 'Calories':
                 data.sort(key=lambda x: x['recipe']['calories'])

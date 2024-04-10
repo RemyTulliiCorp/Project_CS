@@ -24,7 +24,7 @@ if output_recipes: # == if you press on the button
     if data: # == if a recipe exists
         meals = data.get("hits")
         if sort_option == 'Calories':
-            sorted_meals = sorted(meals, key=lambda x: x((['recipe']['calories'])/(['recipe']['yield']))) # sorting condition one
+            sorted_meals = sorted(meals, key=lambda x: x['recipe']['calories']/x['recipe']['yield']) # sorting condition one
         elif sort_option == 'Cooking Time':
             sorted_meals = sorted(meals, key=lambda x: x['recipe'].get('totalTime', 0))   # second sorting condition
         else:

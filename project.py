@@ -24,7 +24,7 @@ if output_recipes: # == if you press on the button
     if data: # == if a recipe exists
         meals = data.get("hits")
         if sort_option == 'Calories':
-            sorted_meals = sorted(meals, key=lambda x: x['recipe']['calories']) # sorting condition one
+            sorted_meals = sorted(meals, key=lambda x: x((['recipe']['calories'])/(['recipe']['yield']))) # sorting condition one
         elif sort_option == 'Cooking Time':
             sorted_meals = sorted(meals, key=lambda x: x['recipe'].get('totalTime', 0))   # second sorting condition
         else:
@@ -35,6 +35,7 @@ if output_recipes: # == if you press on the button
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
             st.write(f" For {round(recipe['yield'])} persons")
+            st.write(f" Total calories: {recipe['calories']}")
             st.write(f" Calories per serving: {round(recipe['calories']/recipe['yield'])}") # calories 
             if recipe['totalTime'] > 0:
                 st.write(f" {round(recipe['totalTime'])} minutes") # cooking time

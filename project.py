@@ -36,11 +36,13 @@ if output_recipes: # == if you press on the button
             st.markdown('<hr>', unsafe_allow_html = True) # line separator between each recipe
     
         sort_option = st.selectbox('Sort recipes by',options=('None', 'Calories', 'Cooking Time'),index=0)
+        if output_recipes:
+            data = (your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories):
         # Sort the recipes based on the selected option
-        if sort_option == 'Calories':
-            data.sort(key=lambda x: x['recipe']['calories'])
-        elif sort_option == 'Cooking Time':
-            data.sort(key=lambda x: x['recipe'].get('totalTime', 0))  # Assuming totalTime is provided and in minutes
+          if sort_option == 'Calories':
+             data.sort(key=lambda x: x['recipe']['calories'])
+          elif sort_option == 'Cooking Time':
+             data.sort(key=lambda x: x['recipe'].get('totalTime', 0))  # Assuming totalTime is provided and in minutes
         
         # Display the sorted recipes...
 

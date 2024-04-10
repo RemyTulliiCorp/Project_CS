@@ -16,15 +16,15 @@ max_calories = st.slider('Maximum number of calories', 100, 5000, 2500, 100)
 # button to lauch the search
 output_recipes = st.button('Find Recipes')
 # sorting option
-sort_option = st.selectbox('Sort recipes by',options=('None', 'Calories', 'Cooking Time'),index=0)
+sort_option = st.selectbox('Sort recipes by',options=('', 'Calories', 'Cooking Time'),index=0)
 
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories)
         # Sort the recipes based on the selected option
     if sort_option == 'Calories':
-            data.sort(key=lambda x: x['recipe']['calories'])
+            sorted_recipe = sorted(data, key=lambda x: x['recipe']['calories'])
     elif sort_option == 'Cooking Time':
-            data.sort(key=lambda x: x['recipe'].get('totalTime', 0))
+            sorted_recipe = sorted(data, key=lambda x: x['recipe'].get('totalTime', 0))
      
     if data: # == if a recipe exists
         meals = data.get("hits") #hits comes before recipe
@@ -42,10 +42,7 @@ if output_recipes: # == if you press on the button
             st.markdown(f"[Recipe Instructions]({url_recipe})") # give a link to the instruction to cook the recipe
             st.markdown('<hr>', unsafe_allow_html = True) # line separator between each recipe
     
-        sort_option = st.selectbox('Sort recipes by',options=('None', 'Calories', 'Cooking Time'),index=0)
-        # Sort the recipes based on the selected option
         
-
     else:
         st.write('No recipe was found :hankey:')
     

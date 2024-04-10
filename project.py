@@ -21,14 +21,14 @@ sort_option = st.selectbox('Sort recipes by',options=('', 'Calories', 'Cooking T
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories)
         # Sort the recipes based on the selected option
-    if sort_option == 'Calories':
-        sorted_recipe = sorted(data.get('hits'), key=lambda x: x['recipe']['calories'])
-    elif sort_option == 'Cooking Time':
-        sorted_recipe = sorted(data.get('hits'), key=lambda x: x['recipe'].get('totalTime', 0))
-     
     if data: # == if a recipe exists
         meals = data.get("hits") #hits comes before recipe
         for meal in meals:
+            if sort_option == 'Calories':
+                sorted_recipe = sorted(meal, key=lambda x: x['recipe']['calories'])
+            elif sort_option == 'Cooking Time':
+                sorted_recipe = sorted(meal, key=lambda x: x['recipe'].get('totalTime', 0))
+
             recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe

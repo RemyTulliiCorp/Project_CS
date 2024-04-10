@@ -39,10 +39,10 @@ if output_recipes: # == if you press on the button
         if output_recipes:
             data = (your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories):
         # Sort the recipes based on the selected option
-          if sort_option == 'Calories':
-             data.sort(key=lambda x: x['recipe']['calories'])
-          elif sort_option == 'Cooking Time':
-             data.sort(key=lambda x: x['recipe'].get('totalTime', 0))  # Assuming totalTime is provided and in minutes
+            if sort_option == 'Calories':
+                data.sort(key=lambda x: x['recipe']['calories'])
+            elif sort_option == 'Cooking Time':
+                data.sort(key=lambda x: x['recipe'].get('totalTime', 0))  # Assuming totalTime is provided and in minutes
         
         # Display the sorted recipes...
 

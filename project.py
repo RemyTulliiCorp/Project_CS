@@ -34,9 +34,19 @@ if output_recipes: # == if you press on the button
             url_recipe = recipe['url']
             st.markdown(f"[Recipe Instructions]({url_recipe})") # give a link to the instruction to cook the recipe
             st.markdown('<hr>', unsafe_allow_html = True) # line separator between each recipe
+    
+        sort_option = st.selectbox('Sort recipes by',options=('None', 'Calories', 'Cooking Time'),index=0)
+        # Sort the recipes based on the selected option
+        if sort_option == 'Calories':
+            data.sort(key=lambda x: x['recipe']['calories'])
+        elif sort_option == 'Cooking Time':
+            data.sort(key=lambda x: x['recipe'].get('totalTime', 0))  # Assuming totalTime is provided and in minutes
+        
+        # Display the sorted recipes...
+
     else:
         st.write('No recipe was found :hankey:')
-
+    
 
 
 

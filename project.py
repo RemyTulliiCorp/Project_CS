@@ -25,9 +25,9 @@ if output_recipes: # == if you press on the button
         meals = data.get("hits") #hits comes before recipe
         for meal in meals:
             if sort_option == 'Calories':
-                sorted_recipe = sorted(meal, key=lambda x: x['recipe']['calories'])
+                sorted_recipe = sorted(meals, key=lambda x: x['recipe']['calories'])
             elif sort_option == 'Cooking Time':
-                sorted_recipe = sorted(meal, key=lambda x: x['recipe'].get('totalTime', 0))
+                sorted_recipe = sorted(meals, key=lambda x: x['recipe'].get('totalTime', 0))
 
             recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe

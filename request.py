@@ -21,8 +21,8 @@ def search_recipes(your_ingredients, cuisine_type = None, max_time = None, exclu
   if cuisine_type: # == if the cuisine box is checked
     params['cuisineType'] = cuisine_type # new query parameter added
   
-  if max_time:
-    params['time'] = f'1-{max_time}'
+  if max_time: # == if the max_time is selected
+    params['time'] = f'1-{max_time}' # new query parameter added
   if excluded_ingredients:
     params['excluded'] = excluded_ingredients.split(',')
 

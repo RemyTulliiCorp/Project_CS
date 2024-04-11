@@ -30,7 +30,7 @@ if output_recipes: # == if you press on the button
         else:
             sorted_meals = meals
 
-        for meal in sorted_meals:
+        for meal in sorted_meals: # loop that get the recipes that meet the specified conditions
             recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe

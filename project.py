@@ -2,7 +2,6 @@ import streamlit as st
 import requests
 from request import search_recipes
 import pandas as pd
-from selectbox import df
 # Title
 st.title('Kitchen:red[Alchemy]')
 # User input for ingredients 

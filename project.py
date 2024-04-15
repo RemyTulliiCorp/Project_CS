@@ -50,9 +50,9 @@ if output_recipes: # == if you press on the button
             'Nutrients': ['Proteins (g)', 'Lipids (g)', 'Sugars (g)'],
             'Amounts': [protein, fats, sugars]
             }
-            df = pd.DataFrame(data)
-            df.set_index('Nutrients', inplace=True)
-            st.bar_chart(df['Amounts']) # Display the bar chart
+            dataframe = pd.DataFrame(data)
+            dataframe.set_index('Nutrients', inplace=True)
+            st.bar_chart(dataframe['Amounts']) # Display the bar chart
 
             for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
                 st.write(f'{ingredient}')

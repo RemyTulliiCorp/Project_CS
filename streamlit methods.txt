@@ -6,3 +6,5 @@ st.image --> https://docs.streamlit.io/develop/api-reference/media/st.image
 st.selectbox --> https://docs.streamlit.io/develop/api-reference/widgets/st.selectbox
 st.markdown --> https://docs.streamlit.io/develop/api-reference/text/st.markdown
 st.slider --> https://docs.streamlit.io/develop/api-reference/widgets/st.slider
+st.bar_chart --> https://docs.streamlit.io/develop/api-reference/charts/st.bar_chart
+pd.Dataframe --> https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html

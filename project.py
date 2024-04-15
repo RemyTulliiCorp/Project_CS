@@ -1,6 +1,8 @@
 import streamlit as st
 import requests
 from request import search_recipes
+import pandas as pd
+from selectbox import df
 # Title
 st.title('Kitchen:red[Alchemy]')
 # User input for ingredients 
@@ -39,6 +41,20 @@ if output_recipes: # == if you press on the button
             st.write(f" Calories per serving: {round(recipe['calories']/recipe['yield'])}") # calories 
             if recipe['totalTime'] > 0:
                 st.write(f" {round(recipe['totalTime'])} minutes") # cooking time
+            nutrients = meal['recipe']['totalNutrients'] # extraction of the nutritional data
+            protein = nutrients.get('PROCNT', {}).get('quantity', 0)
+            fats = nutrients.get('FAT', {}).get('quantity', 0)
+            sugars = nutrients.get('SUGAR', {}).get('quantity', 0)
+
+            #Create a DataFrame to hold the nutritional data
+            data = {
+            'Nutrients': ['Proteins (g)', 'Total Lipids (g)', 'Total Sugars (g)'],
+            'Amounts': [protein, fats, sugars]
+            }
+            df = pd.DataFrame(data)
+            df.set_index('Nutrients', inplace=True)
+            st.bar_chart(df['Amounts']) # Display the bar chart
+
             for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
                 st.write(f'{ingredient}')
             url_recipe = recipe['url']

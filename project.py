@@ -2,8 +2,7 @@ import streamlit as st
 import requests
 from request import search_recipes
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 # Title
 st.title('Kitchen:red[Alchemy]')
 # User input for ingredients 
@@ -54,13 +53,7 @@ if output_recipes: # == if you press on the button
             }
             dataframe = pd.DataFrame(data)
             dataframe.set_index('Nutrients', inplace=True)
-            sns.set_theme(style = 'whitegrid')
-            plt.figure(figsize = (10, 6))
-            sns.barplot(x="Nutrients", y='Amounts', data=dataframe)
-            plt.title("Nutritional Values")
-            plt.xlabel("Nutrients")
-            plt.ylabel("Quantities")
-            st.image(plt.show()) # Display the bar chart
+            st.bar_chart(data=dataframe, x='Nutrients', y='Quantities', color=["#fd0", "#f0f", "#04f"])
 
             for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
                 st.write(f'{ingredient}')

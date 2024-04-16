@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 from request import search_recipes
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import seaborn as sns
 # Title
 st.title('Kitchen:red[Alchemy]')

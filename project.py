@@ -54,7 +54,7 @@ if output_recipes: # == if you press on the button
             }
             dataframe = pd.DataFrame(data)
             dataframe.set_index('Nutrients', inplace=True)
-            st.bar_chart(data=dataframe, y='Quantities (g)', color=["#fd0"])
+            col2.bar_chart(data=dataframe, y='Quantities (g)', color=["#fd0"])
 
             for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
                 st.write(f'{ingredient}')

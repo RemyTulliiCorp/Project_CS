@@ -49,7 +49,7 @@ if output_recipes: # == if you press on the button
             #Create a DataFrame to hold the nutritional data
             data = {
             'Nutrients': ['Proteins', 'Lipids', 'Carbs'],
-            'Quantities': [protein, fats, sugars]
+            'Quantities (g)': [protein, fats, sugars]
             }
             dataframe = pd.DataFrame(data)
             dataframe.set_index('Nutrients', inplace=True)

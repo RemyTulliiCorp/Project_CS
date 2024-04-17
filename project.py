@@ -60,7 +60,7 @@ if output_recipes: # == if you press on the button
                 col1.write(f'{ingredient}')
             url_recipe = recipe['url']
             col1.markdown(f"[Recipe Instructions]({url_recipe})") # give a link to the instruction to cook the recipe
-            col1.markdown('<hr>', unsafe_allow_html = True) # line separator between each recipe
+            st.markdown('<hr>', unsafe_allow_html = True) # line separator between each recipe
     
     else:
         st.write('No recipe was found :hankey:')

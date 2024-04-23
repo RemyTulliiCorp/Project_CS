@@ -22,7 +22,7 @@ output_recipes = st.button('Find Recipes')
 # sorting option
 sort_option = st.selectbox('Sort recipes by',options=('', 'Calories', 'Cooking Time'),index=0)
 
-col1, col2 = st.columns([3,1])
+st, st = st.columns([3,1])
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories)
 
@@ -37,11 +37,11 @@ if output_recipes: # == if you press on the button
 
         for meal in sorted_meals: # loop that get the recipes that meet the specified conditions
             recipe = meal.get("recipe") #recipe comes before image and label
-            col1.image(recipe['image']) # put an image of the recipe
-            col1.subheader(recipe['label']) # give the name of the recipe
-            col1.write(f" For {round(recipe['yield'])} persons")
-            col1.write(f" Total calories: {recipe['calories']}")
-            col1.write(f" Calories per serving: {round(recipe['calories']/recipe['yield'])}") # calories 
+            st.image(recipe['image']) # put an image of the recipe
+            st.subheader(recipe['label']) # give the name of the recipe
+            st.write(f" For {round(recipe['yield'])} persons")
+            st.write(f" Total calories: {recipe['calories']}")
+            st.write(f" Calories per serving: {round(recipe['calories']/recipe['yield'])}") # calories 
             if recipe['totalTime'] > 0:
                 st.write(f" {round(recipe['totalTime'])} minutes") # cooking time
             nutrients = meal['recipe']['totalNutrients'] # extraction of the nutritional data
@@ -56,12 +56,13 @@ if output_recipes: # == if you press on the button
             }
             dataframe = pd.DataFrame(data)
             dataframe.set_index('Nutrients', inplace=True)
-            col2.bar_chart(data=dataframe, y='Quantities (g)', color=["#fd0"])
+            with st.expander("Show Nutrients"):
+                st.bar_chart(data=dataframe, y='Quantities (g)', color=["#fd0"])
 
             for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
-                col1.write(f'{ingredient}')
+                st.write(f'{ingredient}')
             url_recipe = recipe['url']
-            col1.markdown(f"[Recipe Instructions]({url_recipe})") # give a link to the instruction to cook the recipe
+            st.markdown(f"[Recipe Instructions]({url_recipe})") # give a link to the instruction to cook the recipe
             st.markdown('<hr>', unsafe_allow_html = True) # line separator between each recipe
     
     else:

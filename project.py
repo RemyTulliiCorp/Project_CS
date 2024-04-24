@@ -50,14 +50,12 @@ if output_recipes: # == if you press on the button
             carbs = nutrients.get('CHOCDF', {}).get('quantity', 0)/servings
 
             #Create a DataFrame to hold the nutritional data
-            data = {
-            'Nutrients': ['Proteins', 'Lipids', 'Carbs'],
-            'Quantities (g)': [[protein], [fats, nutrients.get('FASAT').get('quantity')/servings], [carbs]]
-            }
-            dataframe = pd.DataFrame(data)
-            dataframe.set_index('Nutrients', inplace=True)
+            chart_data = pd.DataFrame({
+                'Nutrients': ['Proteins', 'Lipids', 'Carbs'], 
+                'Quantities (g)': [(protein), (fats, nutrients.get('FASAT').get('quantity')/servings), (carbs)]})
+            chart_data.set_index('Nutrients', inplace=True)
             with st.expander("Show Nutrients"):
-                st.bar_chart(data=dataframe, y='Quantities (g)')
+                st.bar_chart(data=chart_data, y='Quantities (g)')
 
             for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
                 st.write(f'{ingredient}')

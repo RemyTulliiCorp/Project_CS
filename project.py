@@ -37,28 +37,27 @@ if output_recipes: # == if you press on the button
             recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
-            st.write(f" For {recipe['yield']} persons")
-            st.write(f" Calories per serving: {round(recipe['calories']/recipe['yield'])}") # calories 
-            st.write(f" Calories request: {recipe['calories']}")
+            servings = recipe['yield']
+            st.write(f" For {servings} persons")
+            st.write(f" Calories per serving: {round(recipe['calories']/servings)}") # calories 
             if recipe['totalTime'] > 0:
                 st.write(f" {round(recipe['totalTime'])} minutes") # cooking time
             for diet in recipe['dietLabels']:
                 st.write(diet)
             nutrients = meal['recipe']['totalNutrients'] # extraction of the nutritional data
-            st.write(f" ENERC_KCAL request: {nutrients.get('ENERC_KCAL').get('quantity, 0')}")
-            protein = nutrients.get('PROCNT', {}).get('quantity', 0)
-            fats = nutrients.get('FAT', {}).get('quantity', 0)
-            sugars = nutrients.get('SUGAR', {}).get('quantity', 0)
+            protein = nutrients.get('PROCNT', {}).get('quantity', 0)/servings
+            fats = nutrients.get('FAT', {}).get('quantity', 0)/servings
+            carbs = nutrients.get('CHOCDF', {}).get('quantity', 0)/servings
 
             #Create a DataFrame to hold the nutritional data
             data = {
             'Nutrients': ['Proteins', 'Lipids', 'Carbs'],
-            'Quantities (g)': [protein, fats, sugars]
+            'Quantities (g)': [[protein], [fats, nutrients.get('FASAT').get('quantity')/servings], [carbs]]
             }
             dataframe = pd.DataFrame(data)
             dataframe.set_index('Nutrients', inplace=True)
             with st.expander("Show Nutrients"):
-                st.bar_chart(data=dataframe, y='Quantities (g)', color=["#fd0"])
+                st.bar_chart(data=dataframe, y='Quantities (g)')
 
             for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
                 st.write(f'{ingredient}')

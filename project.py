@@ -53,11 +53,10 @@ if output_recipes: # == if you press on the button
             chart_data = pd.DataFrame({
                 'Nutrients': ['Proteins', 'Lipids', 'Carbs'], 
                 'Macronutrients (g)': [protein, fats, carbs],
-                'Details': [None, nutrients.get('FASAT').get('quantity')/servings, None]
                 })
             chart_data.set_index('Nutrients', inplace=True)
             with st.expander("Show Nutrients"):
-                st.bar_chart(data=chart_data, y=['Macronutrients (g)', 'Details'])
+                st.bar_chart(chart_data, y=['Macronutrients (g)'])
 
             for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
                 st.write(f'{ingredient}')

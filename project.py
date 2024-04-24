@@ -52,7 +52,7 @@ if output_recipes: # == if you press on the button
             #Create a DataFrame to hold the nutritional data
             chart_data = pd.DataFrame({
                 'Nutrients': ['Proteins', 'Lipids', 'Carbs'], 
-                'Quantities (g)': [(protein), (fats, nutrients.get('FASAT').get('quantity')/servings), (carbs)]})
+                'Quantities (g)': [[protein] [fats, nutrients.get('FASAT').get('quantity')/servings] [carbs]]})
             chart_data.set_index('Nutrients', inplace=True)
             with st.expander("Show Nutrients"):
                 st.bar_chart(data=chart_data, y='Quantities (g)')

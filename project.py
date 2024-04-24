@@ -21,7 +21,6 @@ output_recipes = st.button('Find Recipes')
 # sorting option
 sort_option = st.selectbox('Sort recipes by',options=('', 'Calories', 'Cooking Time'),index=0)
 
-st, st = st.columns([3,1])
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories)
 

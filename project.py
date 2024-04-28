@@ -16,10 +16,11 @@ max_time = st.selectbox('Maximum total time in minutes', ('', '15', '30', '45'),
 excluded_ingredients = st.text_input('Enter the ingredients you want to exclude')
 #slider to choose the calories
 max_calories = st.slider('Maximum number of calories', 100, 5000, 2500, 100)
+# sorting option
+sort_option = st.selectbox('Sort recipes by',options=('', 'Calories', 'Cooking Time', 'Number of ingredients'),index=0)
 # button to lauch the search
 output_recipes = st.button('Find Recipes')
-# sorting option
-sort_option = st.selectbox('Sort recipes by',options=('', 'Calories', 'Cooking Time'),index=0)
+
 
 if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories)

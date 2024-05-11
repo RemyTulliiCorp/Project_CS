@@ -20,15 +20,15 @@ def search_recipes(your_ingredients, cuisine_type = None, max_time = None, exclu
   }
   
   if cuisine_type: # == if the cuisine box is checked
-    params['cuisineType'] = cuisine_type # new query parameter added
+    params['cuisineType'] = cuisine_type # query parameter that sorts by cuisine type
   
   if max_time: # == if the max_time is selected
-    params['time'] = f'1-{max_time}' # new query parameter added
+    params['time'] = f'1-{max_time}' # query parameter that sorts by cooking time
   if excluded_ingredients:
-    params['excluded'] = excluded_ingredients.split(',')
+    params['excluded'] = excluded_ingredients.split(',') #query parameter that excludes some ingredients
 
   if max_calories:
-    params['calories'] = max_calories
+    params['calories'] = max_calories #query parameter that sorts by calories
 
   response = requests.get(api_url2, params = params) #making the request to the API using the parameters defined above and the second api url link
   

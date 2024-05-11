@@ -26,11 +26,11 @@ if output_recipes: # == if you press on the button
     data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories)
 
     if data: # == if a recipe exists
-        meals = data.get("hits")
+        meals = data.get("hits") # getting access to the API
         if sort_option == 'Calories':
-            sorted_meals = sorted(meals, key=lambda x: x['recipe']['calories']) # sorting condition one
+            sorted_meals = sorted(meals, key=lambda x: x['recipe']['calories']) # sorting output by calories
         elif sort_option == 'Cooking Time':
-            sorted_meals = sorted(meals, key=lambda x: x['recipe'].get('totalTime', 0))   # second sorting condition
+            sorted_meals = sorted(meals, key=lambda x: x['recipe'].get('totalTime', 0))   # sorting output by cooking time
         else:
             sorted_meals = meals
 
@@ -38,26 +38,26 @@ if output_recipes: # == if you press on the button
             recipe = meal.get("recipe") #recipe comes before image and label
             st.image(recipe['image']) # put an image of the recipe
             st.subheader(recipe['label']) # give the name of the recipe
-            servings = recipe['yield']
+            servings = recipe['yield'] #number of servings
             st.write(f" For {servings} persons")
-            st.write(f" Calories per serving: {round(recipe['calories']/servings)}") # calories 
-            if recipe['totalTime'] > 0:
+            st.write(f" Calories per serving: {round(recipe['calories']/servings)}") # display number of calories per serving
+            if recipe['totalTime'] > 0: #if there is a cooking time
                 st.write(f" {round(recipe['totalTime'])} minutes") # cooking time
             for diet in recipe['dietLabels']:
-                st.write(diet)
+                st.write(diet) #display diet labels for each recipe
             nutrients = meal['recipe']['totalNutrients'] # extraction of the nutritional data
             protein = nutrients.get('PROCNT', {}).get('quantity', 0)/servings
             fats = nutrients.get('FAT', {}).get('quantity', 0)/servings
             carbs = nutrients.get('CHOCDF', {}).get('quantity', 0)/servings
 
-            #Create a DataFrame to hold the nutritional data
+            #Create a panda DataFrame to hold the nutritional data
             chart_data = pd.DataFrame({
                 'Nutrients': ['Proteins', 'Lipids', 'Carbs'], 
                 'Macronutrients (g)': [protein, fats, carbs],
                 })
-            chart_data.set_index('Nutrients', inplace=True)
+            chart_data.set_index('Nutrients', inplace=True) #putting nutrients on the x-axis
             with st.expander("Show Nutrients"):
-                st.bar_chart(chart_data, y=['Macronutrients (g)'])
+                st.bar_chart(chart_data, y=['Macronutrients (g)']) #putting macronutientrs as y-axis and display the bar chart
 
             with st.expander("Show Ingredients"):
                 for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe

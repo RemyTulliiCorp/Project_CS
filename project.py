@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 from request import search_recipes
 import pandas as pd
-
+import mathplotlib.pyplot
 
 # Title
 st.title('Kitchen:red[Alchemy]')

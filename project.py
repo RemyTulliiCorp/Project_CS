@@ -59,8 +59,9 @@ if output_recipes: # == if you press on the button
             with st.expander("Show Nutrients"):
                 st.bar_chart(chart_data, y=['Macronutrients (g)'])
 
-            for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
-                st.write(f'{ingredient}')
+            with st.expander("Show Ingredients"):
+                for ingredient in recipe['ingredientLines']:# write the necessary ingredients for each recipe
+                    st.write(f'{ingredient}')
             url_recipe = recipe['url']
             st.markdown(f"[Recipe Instructions]({url_recipe})") # give a link to the instruction to cook the recipe
             st.markdown('<hr>', unsafe_allow_html = True) # line separator between each recipe

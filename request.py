@@ -25,7 +25,7 @@ def search_recipes(your_ingredients, cuisine_type = None, max_time = None, exclu
   if max_time: # == if the max_time is selected
     params['time'] = f'1-{max_time}' # query parameter that sorts by cooking time
   if excluded_ingredients:
-    params['excluded'] = excluded_ingredients.split(',') #query parameter that excludes some ingredients
+    params['excluded'] = excluded_ingredients.split(',') #query parameter that excludes ingredients
 
   if max_calories:
     params['calories'] = max_calories #query parameter that sorts by calories

@@ -8,11 +8,5 @@ all_keys = {
     'matteo_id_edamam': 'c1718ec0',
     'nathan_key_spoonacular' : '75fbe221c50541f09f23211f2a0a3e12',
     'nathan_key_edamam': '103cfc7683f607b04cb4f3490281426d',
-    'nathan_id_edamam' : '92dbb443',
-    'lev_key_spoonacular' : 'input',
-    'lev_key_edamam' : 'input',
-    'lev_id_edamam' : 'input',
-    'ferdi_key_spoonacular' : 'input',
-    'ferdi_key_edamam' : 'input',
-    'ferdi_id_edamam' : 'input'
+    'nathan_id_edamam' : '92dbb443'
 }

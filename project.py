@@ -30,7 +30,7 @@ if output_recipes: # == if you press on the button
         if sort_option == 'Calories':
             sorted_meals = sorted(meals, key=lambda x: x['recipe']['calories']) # sorting output by calories
         elif sort_option == 'Cooking Time':
-            sorted_meals = sorted(meals, key=lambda x: x['recipe'].get('totalTime', 0))   # sorting output by cooking // time this sorting option was coded with the help of Chatgpt 4.0
+            sorted_meals = sorted(meals, key=lambda x: x['recipe'].get('totalTime', 0))   # sorting output by cooking //  this sorting option was coded with the help of Chatgpt 4.0
         else:
             sorted_meals = meals
 
@@ -64,7 +64,7 @@ if output_recipes: # == if you press on the button
                     st.write(f'{ingredient}')
             url_recipe = recipe['url']
             st.markdown(f"[Recipe Instructions]({url_recipe})") # give a link to the instruction to cook the recipe
-            st.markdown('<hr>', unsafe_allow_html = True) # line separator between each recipe
+            st.markdown('<hr>', unsafe_allow_html = True) # line separator between each recipe // chatgpt was use to code this line
     
     else:
         st.write('No recipe was found :hankey:')

@@ -30,7 +30,7 @@ if output_recipes: # == if you press on the button
         if sort_option == 'Calories':
             sorted_meals = sorted(meals, key=lambda x: x['recipe']['calories']) # sorting output by calories
         elif sort_option == 'Cooking Time':
-            sorted_meals = sorted(meals, key=lambda x: x['recipe'].get('totalTime', 0))   # sorting output by cooking time
+            sorted_meals = sorted(meals, key=lambda x: x['recipe'].get('totalTime', 0))   # sorting output by cooking time these two sort options were coded with the help of Chatgpt 4.0
         else:
             sorted_meals = meals
 

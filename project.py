@@ -23,7 +23,7 @@ output_recipes = st.button('Find Recipes')
 
 
 if output_recipes: # == if you press on the button
-    data = search_recipes(your_ingredients, cuisine_type if cuisine_type else None, max_time if max_time else None, excluded_ingredients, max_calories)
+    data = search_recipes(your_ingredients, cuisine_type , max_time if max_time else None, excluded_ingredients, max_calories)
 
     if data: # == if a recipe exists
         meals = data.get("hits") # getting access to the API
